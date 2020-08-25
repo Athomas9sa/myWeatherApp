@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>Weather App</title>
+    </head>
+        <body>
+            <h1>Weather App</h1>
+            <button id = "weather" >click</button>
+            <form>
+                <label>
+                    <input type="hidden" value="animal" id="categoryInput" required placeholder="Current Category: Dev"/>
+                </label>
+                <button type="submit" id="submitForm">Get Quote</button>
+            </form>
+        </body>
+        <script>
+        fetch("https://home.openweathermap.org/api_keys=${category}&4a66b55f4bb56748d359161740003a5c")
+        .then(response => response.json())
+        .then(response => {
+          document.getElementById("weather").innerHTML = response.main.temp + "°";
+        })
+        .catch(error => alert("Please add your api key to the fetch url"));
+    </script>
+    <script src = "js/index.js"></script>
+</html>
